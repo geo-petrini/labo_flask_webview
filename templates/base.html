@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Quotes{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}" >
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        {% block footer %}
+        {% endblock %}
+    </footer>
+
+    {% block scripts %}
+    {% endblock %}
+
+</body>
+</html>

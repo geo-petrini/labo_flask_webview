@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+Gioca | WordMix
+{% endblock %}
+
+{% block content %}
+<section class="game-card">
+
+    <h1>Indovina la parola</h1>
+
+    <div class="scrambled-word">
+        {{ word }}
+    </div>
+
+    <form method="post">
+        <input
+            type="text"
+            name="guess"
+            placeholder="La tua risposta..."
+            autocomplete="off"
+            autofocus
+        >
+
+        <button type="submit">
+            Invia
+        </button>
+    </form>
+
+</section>
+{% endblock %}
